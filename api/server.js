@@ -2,7 +2,10 @@
 const jsonServer = require('json-server')
 
 const server = jsonServer.create()
-
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+  });
 // Uncomment to allow write operations
 const fs = require('fs')
 const path = require('path')
